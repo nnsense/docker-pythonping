@@ -1,0 +1,22 @@
+---
+version: "3.9"
+services:
+
+  wp:
+    image: httpd:latest
+    container_name: wp
+    restart: unless-stopped
+    ports:
+    - 9999:80
+
+  py:
+    #image: python:3
+    build: build
+    container_name: py
+    volumes:
+      - ./app/ping.py:/app/ping.py
+    command: ["/app/ping.py"]
+    restart: unless-stopped
+    environment:
+      - WP_HOSTNAME=wp
+
