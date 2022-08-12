@@ -6,11 +6,8 @@ services:
     image: httpd:latest
     container_name: wp
     restart: unless-stopped
-    ports:
-    - 9999:80
 
   py:
-    #image: python:3
     build: build
     container_name: py
     volumes:
