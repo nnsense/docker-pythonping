@@ -7,5 +7,7 @@ hostname = os.environ["WP_HOSTNAME"]
 print("PING " + hostname)
 
 ping = Ping(hostname, 80, 60)
-ping.ping()
+
+while True:
+  ping.ping()
 
